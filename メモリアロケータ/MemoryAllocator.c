@@ -2,6 +2,9 @@
 #include <memory.h>
 #include "MemoryAllocator.h"
 
+//MitLicese.
+//2019 Yakitori.
+
 Memory MemoryAllocate(size_t N,size_t SizeOfElement ) {
 	Memory M = { NULL,0 ,0};
 
