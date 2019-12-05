@@ -16,6 +16,20 @@ Memory MemoryAllocate(size_t N,size_t SizeOfElement ) {
 	return M;
 }
 
+Memory MemoryReAllocate(Memory* Mem,size_t N) {
+	Memory M = { NULL,0 ,0};
+
+	void *p = realloc(Mem->Memory,N*Mem->ElementSize);
+
+	if (p != NULL) {	
+		if (p != Mem->Memory) { free(Mem->Memory); }
+		Mem->Memory = p;
+		M.Length = N;
+	}
+
+	return M;
+}
+
 bool MemoryFree(Memory* In) {
 	free(In->Memory);
 
