@@ -10,4 +10,5 @@ typedef struct Memory_ {
 
 Memory MemoryAllocate(size_t N, size_t SizeOfElement);
 Memory MemoryReAllocate(Memory* Mem, size_t N);
+void* MemoryIndex(Memory* M, size_t Idx);
 bool MemoryFree(Memory*);

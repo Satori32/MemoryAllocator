@@ -5,6 +5,8 @@
 //MitLicese.
 //2019 Yakitori.
 
+#define BYTE unsigned char
+
 Memory MemoryAllocate(size_t N,size_t SizeOfElement ) {
 	Memory M = { NULL,0 ,0};
 
@@ -29,6 +31,10 @@ Memory MemoryReAllocate(Memory* Mem,size_t N) {
 	}
 
 	return *Mem;
+}
+
+void* MemoryIndex(Memory* M, size_t Idx) {
+	return (Idx < M->Length) ? (((BYTE*)M->Memory) + (M->ElementSize * Idx)) : NULL;
 }
 
 bool MemoryFree(Memory* In) {
