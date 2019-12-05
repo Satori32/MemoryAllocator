@@ -8,5 +8,6 @@ typedef struct Memory_ {
 	size_t Length;
 } Memory;
 
-Memory MemoryAllocate(size_t N,size_t OneSize);
+Memory MemoryAllocate(size_t N, size_t SizeOfElement);
+Memory MemoryReAllocate(Memory* Mem, size_t N);
 bool MemoryFree(Memory*);

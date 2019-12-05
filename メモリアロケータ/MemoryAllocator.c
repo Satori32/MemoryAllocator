@@ -17,17 +17,15 @@ Memory MemoryAllocate(size_t N,size_t SizeOfElement ) {
 }
 
 Memory MemoryReAllocate(Memory* Mem,size_t N) {
-	Memory M = { NULL,0 ,0};
-
 	void *p = realloc(Mem->Memory,N*Mem->ElementSize);
 
 	if (p != NULL) {	
 		//if (p != Mem->Memory) { free(Mem->Memory); }//this is safe??
 		Mem->Memory = p;
-		M.Length = N;
+		Mem->Length = N;
 	}
 
-	return M;
+	return *Mem;
 }
 
 bool MemoryFree(Memory* In) {
