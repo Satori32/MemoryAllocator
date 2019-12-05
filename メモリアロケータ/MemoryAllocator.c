@@ -22,7 +22,7 @@ Memory MemoryReAllocate(Memory* Mem,size_t N) {
 	void *p = realloc(Mem->Memory,N*Mem->ElementSize);
 
 	if (p != NULL) {	
-		if (p != Mem->Memory) { free(Mem->Memory); }
+		if (p != Mem->Memory) { free(Mem->Memory); }//this is safe??
 		Mem->Memory = p;
 		M.Length = N;
 	}
